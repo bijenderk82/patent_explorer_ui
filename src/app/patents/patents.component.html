@@ -1,0 +1,40 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="productShortName">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let patent"> 
+        <a [routerLink]="['/patents/' + patent.productShortName]" (click)="logLink(patent)">{{patent.productShortName}} </a></td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="productTitle">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let patent"> 
+        {{patent.productTitle}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="productLevel">
+      <th mat-header-cell *matHeaderCellDef> Product Level </th>
+      <td mat-cell *matCellDef="let patent"> {{patent.productLevel}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="productFromDate">
+      <th mat-header-cell *matHeaderCellDef> Product from Date </th>
+      <td mat-cell *matCellDef="let patent"> {{patent.productFromDate}} </td>
+    </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="productToDate">
+            <th mat-header-cell *matHeaderCellDef> Product to Date </th>
+            <td mat-cell *matCellDef="let patent"> {{patent.productToDate}} </td>
+          </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
